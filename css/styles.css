@@ -115,6 +115,7 @@ body{
     align-items: center;
 }
 #display-reloj {
+    font-family: var(--clock-font);
     position: relative;
     color:antiquewhite;
     width: 100%;
