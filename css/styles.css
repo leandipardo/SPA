@@ -99,6 +99,7 @@ body{
     text-align: center;
 }
 .clock-screen{
+    display: flex;
     border-left: darkslategrey solid 5px;
     border-top:darkslategrey solid 5px;
     border-bottom: black solid 5px;
@@ -110,11 +111,13 @@ body{
     margin-right: 5%;
     margin-bottom: 3%;
     background-color: rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
 }
 #display-reloj {
+    position: relative;
     color:antiquewhite;
     width: 100%;
-    height: 100%;
     font-size: 60px;
 }
 .clock-container >h2{
