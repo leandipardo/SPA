@@ -1,6 +1,6 @@
 export default function alarm (clock, stop, soundOn, soundOff){
   const d = document;
-  let a = undefined;
+  let a;
   
     d.addEventListener("click", (e) => {
       const $p = document.getElementById("display-reloj");
@@ -8,25 +8,27 @@ export default function alarm (clock, stop, soundOn, soundOff){
       const $stop = document.querySelector(stop);
       const $sound = document.querySelector(soundOn);
       const $soundOff = document.querySelector(soundOff);
+
+
+
       if (e.target.matches(clock)){
-        console.log("entro en play")
-        $clock.setAttribute("disabled","true");
-        $stop.removeAttribute("disabled");
-        a = setInterval(function intervuki(){
-          console.clear();
-          const fecha = new Date();
-          $p.innerText = `${fecha.toLocaleTimeString()}`;
+        $clock.disabled = true;
+        $stop.disabled= false;
+        a = setInterval(() =>{
+          $p.innerText = `${new Date().toLocaleTimeString()}`;
         },1000);
       }
       if(e.target.matches(stop)){
-        $stop.setAttribute("disabled","true")
-        $clock.removeAttribute("disabled");
+        $stop.disabled = true;
+        $clock.disabled = false;
         clearInterval(a);
-        $p.innerText = ``;
+        $p.innerText = null;
       }
       if (e.target.matches(soundOn)){
-        $sound.setAttribute("disabled","true");
-        $soundOff.removeAttribute("disabled");
+        $sound.disabled = true;
+        $soundOff.disabled = false
+
+
         const conteiner = document.querySelector(".container-button");
         console.log(conteiner);
         const $sonido = document.createElement("audio");
@@ -37,8 +39,10 @@ export default function alarm (clock, stop, soundOn, soundOff){
         conteiner.insertAdjacentElement("beforeend",$sonido);
       } 
       if (e.target.matches(soundOff)){
-        $soundOff.setAttribute("disabled","true");
-        $sound.removeAttribute("disabled");
+        $soundOff.disabled = true;
+        $sound.disabled = false;
+
+
         const conteiner = document.querySelector(".sonido");
         conteiner.remove("audio");
       }

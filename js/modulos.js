@@ -3,5 +3,5 @@ import alarm from "./reloj.js";
 const d = document;
 d.addEventListener("DOMContentLoaded", (e)=>{
     menuSlide(".button-menu",".scuare",".menu");
+    alarm(".clock", ".clock-off", ".sound",".sound-off");
 })
-alarm(".clock", ".clock-off", ".sound",".sound-off");
