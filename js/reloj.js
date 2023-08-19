@@ -16,14 +16,10 @@ export default function alarm (clock, stop, soundOn, soundOff){
         console.log("entro en pause")
         clearInterval(a);
       }
-
-
       if (e.target.matches(soundOn)) {
       
-      }
-      
-      
-      if (e.target.matches(soundOff)) {
+      } 
+      if (e.target.matches(soundOff)){
       
       }
     });
