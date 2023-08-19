@@ -1,7 +1,7 @@
 import menuSlide from "./menu.js";
-import alarm from "./alarma.js";
+import alarm from "./reloj.js";
 const d = document;
 d.addEventListener("DOMContentLoaded", (e)=>{
     menuSlide(".button-menu",".scuare",".menu");
 })
-alarm(".clock")
+alarm(".clock", ".clock-off");
