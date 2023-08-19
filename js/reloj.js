@@ -1,20 +1,20 @@
+
 export default function alarm (clock, stop, soundOn, soundOff){
-    const d = document;
-    const condition = true;
+  const d = document;
+  let a = undefined;
     d.addEventListener("click", (e) => {
-    
+      console.log(e)
       if (e.target.matches(clock)){
-        console.log(e.target);
-        const temporizador = setInterval(() => {
+        console.log("entro en play")
+        a = setInterval(function intervuki(){
           console.clear();
           const fecha = new Date();
           console.log(fecha.toLocaleTimeString());
-        }, 1000);
-        temporizador();
+        },1000);
       }
       if(e.target.matches(stop)){
-        clearInterval(temporizador);
-        console.log("fui apretado");
+        console.log("entro en pause")
+        clearInterval(a);
       }
 
 

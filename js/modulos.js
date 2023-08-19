@@ -4,4 +4,4 @@ const d = document;
 d.addEventListener("DOMContentLoaded", (e)=>{
     menuSlide(".button-menu",".scuare",".menu");
 })
-alarm(".clock", ".clock-off");
+alarm(".clock", ".clock-off", ".sound","sound-off");

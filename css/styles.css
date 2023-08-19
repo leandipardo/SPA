@@ -120,7 +120,7 @@ body{
     justify-content: space-around;
 }
 .clock-container >.container-button >button{
-    scale: 1.5;
+    scale: 1;
     padding-left: 15px;
     padding-right: 15px;
     padding-top:2.5px;
