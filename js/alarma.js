@@ -6,7 +6,7 @@ export default function alarm (clock){
           console.clear();
           const fecha = new Date();
           console.log(fecha.toLocaleTimeString())
-        },1000);
+        },1000);a
       }
     });
 }
