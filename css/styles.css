@@ -1,0 +1,138 @@
+:root{
+    --day-font-color: black;
+    --day-font-color-transparent: rgba(0, 0, 0, 0.279);
+    --night-font-color:white;
+    --bg-color:white;
+    --contrast-color:black;
+    --menu-font:'Advent Pro',"sans-serif";
+    --clock-font:'Press Start 2P', cursive;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: var(--bg-color);
+    overflow-x:hidden;
+}
+
+
+/* ----------menu---------- */
+.menu{
+    position: fixed;
+    z-index: 100;
+    margin-top: 25vh;
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 0px 0px 150px 20px black;
+    margin-left: 1vw;
+    padding:1rem;
+    transition: transform .5s ease 0s;
+    transform-origin: top left;
+}
+.menu-translate{
+    transform-origin: top left;
+    transition: transform .2s linear 0s;
+    transform: translateX(-300px)rotateX(90deg);
+}
+.menu>div{
+    font-family: var(--menu-font);
+    font-weight: 800;
+    font-size:64px;
+    list-style: none;
+}
+.menu >div >a{
+    position: relative;
+    text-decoration: none;
+    color:var(--bg-color);
+    text-transform: uppercase;
+    white-space : nowrap;
+}
+.menu >div >a:hover{
+    color:black;
+}
+/* -------button menu-------- */
+.button-menu{
+    position: fixed;
+    z-index: 100;
+    height: 30px;
+    width: 50px;
+    left: calc(100vw - 100px);
+    top: calc(100vh - 60px);
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.797);
+}
+.scuare{
+    position: relative;
+    left: -15px;
+    background-color: var(--contrast-color);
+    height: 20px;
+    width: 10px;
+    border-radius: 2.5px;
+    transition: transform .5s ease 0s;
+    transform: translateX(11px);
+    opacity: 80%;
+    cursor: pointer;
+}
+.btn-translate{
+    transform-origin: top left;
+    transition: transform .2s ease 0s;
+    transform: translateX(0)rotateX(90deg);
+}
+.section{
+    height: 100vh;
+    width: 100vw;
+    background-color: #b9798d;
+}
+
+/* --------------RELOJ-------------- */
+.clock-container{
+    background-color: rgb(36, 36, 36);
+    width: 50vw;
+    height: 50vh;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 5px -5px 0px;
+    margin-left: 25vw;
+    text-align: center;
+}
+.clock-screen{
+    border-left: darkslategrey solid 5px;
+    border-top:darkslategrey solid 5px;
+    border-bottom: black solid 5px;
+    border-right: black solid 5px;
+    position: relative;
+    height: 70%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    background-color: rgb(0, 0, 0);
+}
+.clock-container >h2{
+    color: white;
+}
+.container-button{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.clock-container >.container-button >button{
+    scale: 1.5;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top:2.5px;
+    padding-bottom: 2.5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background-color: transparent;
+    border-radius: 5px;
+    filter: grayscale();
+}
+.clock{
+    z-index: 100;
+}
