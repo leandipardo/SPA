@@ -149,15 +149,17 @@ body{
 
 /* -----------------juego---------------------- */
 #seccion2{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; */
+    flex-wrap: nowrap;
+    align-items: center;
 }
 .tablero {
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     background: black;
+    border:60px solid black;
 }
 .pacman {
     width: 60px;
@@ -165,6 +167,6 @@ body{
     border-radius: 50%;
     background: yellowgreen;
     position: relative;
-    margin-left: 50%;
-    margin-top: 50%;
+    top: 100%;
+    left: 100%;
 }
