@@ -1,38 +1,40 @@
-const d = document;
-// const section = d.getElementById("seccion2");
-
-// //crear maquetacion
-
-// const div = d.createElement("div");
-// div.className = "tablero";
-
-// const pacman = d.createElement("div");
-// pacman.className = "pacman";
-
-
-
-// d.addEventListener("onkeydown", e=> ){
-//     if(e.addEventListener("key")
-// }
-
-const $pacman = d.querySelector(".pacman");
-
-
-let a = d.addEventListener("keypress", (e)=>{
-console.log(e)
-});
-
-
-
-function movimieto(keyup,keydn,keyleft,keyright){
-const x = 50;
-const y = 50;
-if(keyleft && x >= 0){
-    x--;
+export default function juego(){
+    const d = document;
+    window.addEventListener("keydown", disableArrowScroll);
+    let x = 50;
+    let y = 50;
+    function disableArrowScroll(event) {
+    if(event.key !== "F12"){
+        event.preventDefault();
+    }
+    const $pacman = d.querySelector(".pacman");
+    if (event.key === "ArrowUp" && y > 0) {
+        y--;
+        $pacman.setAttribute(
+        `style`,
+        `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
+        );
+    }
+    if (event.key === "ArrowDown" && y < 100) {
+        y++;
+        $pacman.setAttribute(
+        `style`,
+        `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
+    );
+    }
+    if (event.key === "ArrowLeft" && x > 0) {
+        x--;
+        $pacman.setAttribute(
+        `style`,
+        `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
+    );
+  }
+  if (event.key === "ArrowRight" && x < 100) {
+    x++;
+    $pacman.setAttribute(
+      `style`,
+      `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
+    );
+  }
 }
-if(keyup && y >= 0){
-    y--;
-}
-$pacman.setAttribute("style", `top:${x}`);
-$pacman.setAttribute("style", `left:${y}`);
 }

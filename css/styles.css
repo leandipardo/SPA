@@ -159,7 +159,8 @@ body{
     width: 70%;
     height: 70%;
     background: black;
-    border:43px solid black;
+    border: 30px solid black;
+    border-radius: 30px;
 }
 .pacman {
     width: 60px;
