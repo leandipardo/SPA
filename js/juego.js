@@ -36,5 +36,17 @@ export default function juego(){
       `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
     );
   }
+
+  if(event.key === "p" && event.altKey){
+    prompt("Has enviado un prompt hijo de perra");
+  }else{
+    if(event.key === "a" && event.altKey){
+    alert("Has enviado una alerta mother fucker");
+  }else{
+    if (event.key === "c" && event.altKey) {
+      confirm("Has enviado una confirmacion culiao");
+    }
+  }
+}
 }
 }
