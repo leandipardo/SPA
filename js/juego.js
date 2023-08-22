@@ -16,13 +16,23 @@ const d = document;
 // }
 
 const $pacman = d.querySelector(".pacman");
+
+
+let a = d.addEventListener("keypress", (e)=>{
+console.log(e)
+});
+
+
+
+function movimieto(keyup,keydn,keyleft,keyright){
 const x = 50;
 const y = 50;
-if(x >=0){
+if(keyleft && x >= 0){
     x--;
-    $pacman.setAttribute("style", `top:${x}`);
 }
-if(y >=0){
+if(keyup && y >= 0){
     y--;
-    $pacman.setAttribute("style", `left:${y}`);
+}
+$pacman.setAttribute("style", `top:${x}`);
+$pacman.setAttribute("style", `left:${y}`);
 }
