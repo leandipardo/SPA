@@ -7,3 +7,5 @@ d.addEventListener("DOMContentLoaded", (e)=>{
     alarm(".clock", ".clock-off", ".sound",".sound-off");
     juego();
 })
+
+//deja de joder negrata
