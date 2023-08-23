@@ -38,13 +38,13 @@ export default function juego(){
   }
 
   if(event.key === "p" && event.altKey){
-    prompt("Has enviado un prompt hijo de perra");
+    prompt("Has enviado un prompt");
   }else{
     if(event.key === "a" && event.altKey){
-    alert("Has enviado una alerta mother fucker");
+    alert("Has enviado una alerta");
   }else{
     if (event.key === "c" && event.altKey) {
-      confirm("Has enviado una confirmacion culiao");
+      confirm("Has enviado una confirmacion");
     }
   }
 }
