@@ -1,11 +1,12 @@
 import menuSlide from "./menu.js";
 import alarm from "./reloj.js";
-import juego from "./juego.js";
+import {movepacman, shortcuts} from "./juego.js";
 const d = document;
 d.addEventListener("DOMContentLoaded", (e)=>{
     menuSlide(".button-menu",".scuare",".menu");
     alarm(".clock", ".clock-off", ".sound",".sound-off");
-    juego();
 })
-
-//deja de joder negrata
+d.addEventListener("keydown", (e)=>{
+    shortcuts(e);
+    movepacman(e,".pacman",".tablero")
+})

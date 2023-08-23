@@ -3,6 +3,7 @@
     --day-font-color-transparent: rgba(0, 0, 0, 0.279);
     --night-font-color:white;
     --bg-color:white;
+    --bg-tablero:black;
     --contrast-color:black;
     --menu-font:'Advent Pro',"sans-serif";
     --clock-font:'Press Start 2P', cursive;
@@ -12,8 +13,30 @@ body{
     background-color: var(--bg-color);
     overflow-x:hidden;
 }
-
-
+@keyframes pacman-DefaultMovement {
+    0%{
+      transform-origin: 50% left;
+      transform:rotateZ(45deg);
+    }50%{
+      transform-origin: 50% left;
+      transform:rotateZ(0deg);
+    }100%{
+          transform-origin: 50% left;
+      transform:rotateZ(45deg);
+    }
+  }
+@keyframes pacman-DefaultMovement2 {
+    0%{
+      transform-origin: 50% left;
+      transform:rotateZ(-45deg);
+    }50%{
+      transform-origin: 50% left;
+      transform:rotateZ(0deg);
+    }100%{
+          transform-origin: 50% left;
+      transform:rotateZ(-45deg);
+    }
+  }
 /* ----------menu---------- */
 .menu{
     position: fixed;
@@ -147,27 +170,40 @@ body{
     z-index: 100;
 }
 
-/* -----------------juego---------------------- */
-#seccion2{
+/* -----------------PACMAN---------------------- */
+.healt-score{
+    background-color: white;
+    height: 4rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: nowrap;
-    align-items: center;
+    justify-content: space-around;
+}
+.healt-score >p{
+    font-size: 1.5rem;
 }
 .tablero {
-    width: 70%;
-    height: 70%;
-    background: black;
-    border: 30px solid black;
-    border-radius: 30px;
+display: flex;
+min-height: 50vh;
+background-color: var(--bg-tablero);
 }
-.pacman {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: yellowgreen;
-    position: relative;
-    top: calc(50% - 30px);
-    left: calc(50% - 30px);
+.pacman{
+    border: black 5px solid;
+    transition: all .1s linear;
+    margin: auto;
+    width: 2rem;
+    height: 2rem;
 }
+.pacman >img{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    z-index: 10;
+}
+.pacman >img:nth-child(1){
+    animation: pacman-DefaultMovement .3s ease-in 0s infinite forwards;
+    animation-play-state: running;
+}
+.pacman >img:nth-child(2){
+    animation: pacman-DefaultMovement2 .3s ease-in 0s infinite forwards;
+    animation-play-state: running;
+}
+  
