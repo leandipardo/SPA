@@ -1,52 +1,46 @@
 export default function juego(){
-    const d = document;
-    window.addEventListener("keydown", disableArrowScroll);
-    let x = 50;
-    let y = 50;
-    function disableArrowScroll(event) {
-    if(event.key !== "F12"){
+  const d = document;
+  const $pacman = d.querySelector(".pacman");
+  const $tablero = d.querySelector(".tablero");
+  window.addEventListener("keydown", disableArrowScroll);
+  let x = 0;
+  let y = 0;
+  function disableArrowScroll(event) {
+    const lPacman = $pacman.getBoundingClientRect();
+    const lTablero = $tablero.getBoundingClientRect();
+    switch (event.keyCode) {
+      case 37:
         event.preventDefault();
+        if (lPacman.left > lTablero.left) {
+          x--;
+        }
+        break;
+      case 38:
+        event.preventDefault();
+        if (lPacman.top > lTablero.top) y--;
+        break;
+      case 39:
+        event.preventDefault();
+        if (lPacman.right < lTablero.right) x++;
+        break;
+      case 40:
+        event.preventDefault();
+        if (lPacman.bottom < lTablero.bottom) y++;
+        break;
+      default:
+        break;
     }
-    const $pacman = d.querySelector(".pacman");
-    if (event.key === "ArrowUp" && y > 0) {
-        y--;
-        $pacman.setAttribute(
-        `style`,
-        `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
-        );
-    }
-    if (event.key === "ArrowDown" && y < 100) {
-        y++;
-        $pacman.setAttribute(
-        `style`,
-        `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
-    );
-    }
-    if (event.key === "ArrowLeft" && x > 0) {
-        x--;
-        $pacman.setAttribute(
-        `style`,
-        `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
-    );
-  }
-  if (event.key === "ArrowRight" && x < 100) {
-    x++;
-    $pacman.setAttribute(
-      `style`,
-      `top:calc(${y}% - 30px);left:calc(${x}% - 30px)`
-    );
-  }
-
-  if(event.key === "p" && event.altKey){
-    prompt("Has enviado un prompt");
-  }else{
-    if(event.key === "a" && event.altKey){
-    alert("Has enviado una alerta");
-  }else{
-    if (event.key === "c" && event.altKey) {
-      confirm("Has enviado una confirmacion");
+    $pacman.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+    if (event.key === "p" && event.altKey) {
+      prompt("Has enviado un prompt");
+    } else {
+      if (event.key === "a" && event.altKey) {
+        alert("Has enviado una alerta");
+      } else {
+        if (event.key === "c" && event.altKey) {
+          confirm("Has enviado una confirmacion");
+        }
+      }
     }
   }
-}
-}
 }
