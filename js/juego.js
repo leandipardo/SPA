@@ -1,46 +1,75 @@
-export default function juego(){
-  const d = document;
-  const $pacman = d.querySelector(".pacman");
-  const $tablero = d.querySelector(".tablero");
-  window.addEventListener("keydown", disableArrowScroll);
-  let x = 0;
-  let y = 0;
-  function disableArrowScroll(event) {
-    const lPacman = $pacman.getBoundingClientRect();
-    const lTablero = $tablero.getBoundingClientRect();
-    switch (event.keyCode) {
-      case 37:
-        event.preventDefault();
-        if (lPacman.left > lTablero.left) {
-          x--;
-        }
-        break;
-      case 38:
-        event.preventDefault();
-        if (lPacman.top > lTablero.top) y--;
-        break;
-      case 39:
-        event.preventDefault();
-        if (lPacman.right < lTablero.right) x++;
-        break;
-      case 40:
-        event.preventDefault();
-        if (lPacman.bottom < lTablero.bottom) y++;
-        break;
-      default:
-        break;
-    }
-    $pacman.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
-    if (event.key === "p" && event.altKey) {
-      prompt("Has enviado un prompt");
-    } else {
-      if (event.key === "a" && event.altKey) {
-        alert("Has enviado una alerta");
-      } else {
-        if (event.key === "c" && event.altKey) {
-          confirm("Has enviado una confirmacion");
-        }
-      }
-    }
+const d = document;
+let rotacion=0,
+x=0,
+y=0,
+a=0,
+direccion=undefined,
+ultimaTecla=undefined;
+export function badisimo(){ 
+  let $badPacman = d.querySelector(".bad-pacman");
+  setInterval(()=>{
+  $badPacman.style.transform =`translate(${Math.random()*100}px, ${Math.random()*100}px)rotate${direccion}(${rotacion}deg)`
+},Math.random()*1000);
+}
+export function movepacman(e, pacman, tablero){
+  const $pacman = d.querySelector(pacman),
+  $score = d.querySelector(".score"),
+  $tablero = d.querySelector(tablero);
+  if(ultimaTecla != undefined){
+  setTimeout(()=>{
+    clearInterval(jujuy);
+    console.log("borrado3")
+  },0);
   }
+  //s
+  if(e.keyCode === 83){
+    ultimaTecla="s";
+    e.preventDefault();
+  }
+  //izquierda
+  if(e.keyCode === 37){
+    e.preventDefault()
+    rotacion=180;
+    direccion="y";
+    ultimaTecla="izq";
+  }
+  //derecha
+  if(e.keyCode === 39){
+    e.preventDefault()
+    rotacion=0;
+    direccion="x";
+    ultimaTecla="der";
+  }
+
+  //arriba
+  if(e.keyCode === 38){
+    e.preventDefault()
+    direccion="z";
+    rotacion=-90;
+    ultimaTecla="arr";
+  }
+
+  //abajo
+  if(e.keyCode === 40){
+    e.preventDefault()
+    direccion="z";
+    rotacion=90;
+    ultimaTecla="aba";
+  }
+    const jujuy = setInterval(()=>{
+    if(ultimaTecla =="aba")y++;
+    if(ultimaTecla =="arr")y--;
+    if(ultimaTecla =="izq")x--;
+    if(ultimaTecla =="der")x++;
+    if(ultimaTecla =="s") console.log(Math.random());
+    $pacman.style.transform =`translate(${x*30}px, ${y*30}px)rotate${direccion}(${rotacion}deg)`
+    a++;
+    let text = `score = ${a}`
+    $score.textContent = text;
+  },100)
+}
+export function shortcuts(e){
+if(e.key === "p" && e.altKey)prompt("Has enviado un prompt hijo de perra");
+if(e.key === "a" && e.altKey)alert("Has enviado una alerta mother fucker");
+if (e.key === "c" && e.altKey)confirm("Has enviado una confirmacion culiao");
 }
