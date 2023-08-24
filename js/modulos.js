@@ -6,7 +6,7 @@ const d = document;
 d.addEventListener("DOMContentLoaded", (e)=>{
     menuSlide(".button-menu",".scuare",".menu");
     alarm(".clock", ".clock-off", ".sound",".sound-off");
-    countdown();
+    countdown(".cronometro", "Sat Jan 13 2024 12:45:32", "Feliz Cumpleaños!!");
 })
 badisimo();
 d.addEventListener("keydown", (e)=>{

@@ -15,53 +15,65 @@ export function movepacman(e, pacman, tablero){
   const $pacman = d.querySelector(pacman),
   $score = d.querySelector(".score"),
   $tablero = d.querySelector(tablero);
-  if(ultimaTecla != undefined){
-  setTimeout(()=>{
-    clearInterval(jujuy);
-    console.log("borrado3")
-  },0);
+  if(ultimaTecla !== undefined){
+    setTimeout(() => {
+      clearInterval(jujuy);
+      console.log("borrado3");
+    });
   }
   //s
   if(e.keyCode === 83){
     ultimaTecla="s";
     e.preventDefault();
+  }else{
+    //izquierda
+    if(e.keyCode === 37){
+      e.preventDefault()
+      rotacion=180;
+      direccion="y";
+      ultimaTecla="izq";
+    }else{
+      //derecha
+      if(e.keyCode === 39){
+        e.preventDefault()
+        rotacion=0;
+        direccion="x";
+        ultimaTecla="der";
+      }else{
+        //arriba
+        if(e.keyCode === 38){
+          e.preventDefault()
+          direccion="z";
+          rotacion=-90;
+          ultimaTecla="arr";
+        }else{
+          //abajo
+          if(e.keyCode === 40){
+            e.preventDefault()
+            direccion="z";
+            rotacion=90;
+            ultimaTecla="aba";
+          }
+        }
+      } 
+    }
   }
-  //izquierda
-  if(e.keyCode === 37){
-    e.preventDefault()
-    rotacion=180;
-    direccion="y";
-    ultimaTecla="izq";
-  }
-  //derecha
-  if(e.keyCode === 39){
-    e.preventDefault()
-    rotacion=0;
-    direccion="x";
-    ultimaTecla="der";
-  }
-
-  //arriba
-  if(e.keyCode === 38){
-    e.preventDefault()
-    direccion="z";
-    rotacion=-90;
-    ultimaTecla="arr";
-  }
-
-  //abajo
-  if(e.keyCode === 40){
-    e.preventDefault()
-    direccion="z";
-    rotacion=90;
-    ultimaTecla="aba";
-  }
-    const jujuy = setInterval(()=>{
-    if(ultimaTecla =="aba")y++;
-    if(ultimaTecla =="arr")y--;
-    if(ultimaTecla =="izq")x--;
-    if(ultimaTecla =="der")x++;
-    if(ultimaTecla =="s") console.log(Math.random());
+  const jujuy = setInterval(()=>{
+    if(ultimaTecla =="aba"){
+      y++;
+    }else{
+      if(ultimaTecla =="arr"){
+        y--;
+      }else{
+        if(ultimaTecla =="izq"){
+          x--;
+        }else{
+          if(ultimaTecla =="der"){
+            x++;
+          }  
+        }
+      }
+    }
     $pacman.style.transform =`translate(${x*30}px, ${y*30}px)rotate${direccion}(${rotacion}deg)`
     a++;
     let text = `score = ${a}`
