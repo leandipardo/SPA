@@ -2,16 +2,29 @@ const d = document;
 let rotacion=0,
 x=0,
 y=0,
+a=0,
 direccion=undefined,
 ultimaTecla=undefined;
+export function badisimo(){ 
+  let $badPacman = d.querySelector(".bad-pacman");
+  setInterval(()=>{
+  $badPacman.style.transform =`translate(${Math.random()*100}px, ${Math.random()*100}px)rotate${direccion}(${rotacion}deg)`
+},Math.random()*1000);
+}
 export function movepacman(e, pacman, tablero){
   const $pacman = d.querySelector(pacman),
+  $score = d.querySelector(".score"),
   $tablero = d.querySelector(tablero);
   if(ultimaTecla != undefined){
   setTimeout(()=>{
     clearInterval(jujuy);
     console.log("borrado3")
   },0);
+  }
+  //s
+  if(e.keyCode === 83){
+    ultimaTecla="s";
+    e.preventDefault();
   }
   //izquierda
   if(e.keyCode === 37){
@@ -48,17 +61,13 @@ export function movepacman(e, pacman, tablero){
     if(ultimaTecla =="arr")y--;
     if(ultimaTecla =="izq")x--;
     if(ultimaTecla =="der")x++;
-  $pacman.style.transform =`translate(${x*30}px, ${y*30}px)rotate${direccion}(${rotacion}deg)`;
-    console.log(`x:${x}   y${y}      `)
+    if(ultimaTecla =="s") console.log(Math.random());
+    $pacman.style.transform =`translate(${x*30}px, ${y*30}px)rotate${direccion}(${rotacion}deg)`
+    a++;
+    let text = `score = ${a}`
+    $score.textContent = text;
   },100)
 }
-
-
-
-
-
-
-
 export function shortcuts(e){
 if(e.key === "p" && e.altKey)prompt("Has enviado un prompt hijo de perra");
 if(e.key === "a" && e.altKey)alert("Has enviado una alerta mother fucker");

@@ -182,11 +182,11 @@ body{
 }
 .tablero {
 display: flex;
+overflow: scroll;
 min-height: 50vh;
 background-color: var(--bg-tablero);
 }
 .pacman{
-    border: black 5px solid;
     transition: all .1s linear;
     margin: auto;
     width: 2rem;
@@ -204,6 +204,28 @@ background-color: var(--bg-tablero);
 }
 .pacman >img:nth-child(2){
     animation: pacman-DefaultMovement2 .3s ease-in 0s infinite forwards;
+    animation-play-state: running;
+}
+
+.bad-pacman{
+    filter: grayscale();
+    transition: all .1s linear;
+    margin: auto;
+    width: 2rem;
+    height: 2rem;
+}
+.bad-pacman >img{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    z-index: 10;
+}
+.bad-pacman >img:nth-child(1){
+    animation: pacman-DefaultMovement 10s ease-in 0s infinite forwards;
+    animation-play-state: running;
+}
+.bad-pacman >img:nth-child(2){
+    animation: pacman-DefaultMovement2 10s ease-in 0s infinite forwards;
     animation-play-state: running;
 }
   
