@@ -1,15 +1,14 @@
 const d = document;
-let booleano = true;
 export default function botonup (scrollY){
     const $boton = d.querySelector(".boton-arriba");
-    console.log(scrollY)
-    if(scrollY > 500 && booleano){
-        $boton.setAttribute("style", "animation: mostrar 1s ease normal forwards");
-        booleano = false;
+    const pixeles = 500;
+    if(scrollY > 500){
+        $boton.classList.add("active")
     }else{
-        if(scrollY <= 500 && !booleano){
-            $boton.setAttribute("style","animation: mostrar 1s ease reverse forwards");
-            booleano = true;    
-        }
+        $boton.classList.remove("active")
+    }
+    if(scrollY > 500 && scrollY <= 1000){
+        $boton.setAttribute("style", `opacity:${(scrollY - pixeles) / 500}`);
     }
 }
+
